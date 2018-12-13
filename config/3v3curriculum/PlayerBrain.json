@@ -1,0 +1,15 @@
+{
+    "measure" : "progress",
+    "thresholds" : [0.66],
+    "min_lesson_length" : 1,
+    "signal_smoothing" : false,
+    "parameters" :
+    {
+      "start_distance_from_ball" : [0, 0],
+      "reset_when_ball_touched": [0, 0],
+      "add_obstacles" : [0.0, 0],
+      "add_enemies" : [1, 1],
+      "start_random_z" : [1, 1],
+      "3v3": [0, 1]
+    }
+}

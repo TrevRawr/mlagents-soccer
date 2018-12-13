@@ -1,0 +1,44 @@
+default:
+    trainer: ppo
+    batch_size: 1024
+    beta: 5.0e-3
+    buffer_size: 10240
+    epsilon: 0.2
+    gamma: 1
+    hidden_units: 128
+    lambd: 0.95
+    learning_rate: 3.0e-4
+    max_steps: 5.0e4
+    memory_size: 256
+    normalize: false
+    num_epoch: 3
+    num_layers: 2
+    time_horizon: 64
+    sequence_length: 64
+    summary_freq: 1000
+    use_recurrent: false
+    use_curiosity: false
+    curiosity_strength: 0.01
+    curiosity_enc_size: 128
+
+PlayerBrain:
+    # max_steps: 1.5e6
+    # max_steps: 8.0e3
+    max_steps: 1e5
+    use_curiosity: true
+    use_recurrent: true
+    sequence_length: 64
+    memory_size: 256
+
+StudentPlayerBrain:
+  trainer: imitation
+  brain_to_imitate: PlayerBrain
+  batch_size: 1024
+  batches_per_epoch: 128
+# Curriculum for curriculum learning
+# {
+#   "start_distance_from_ball" : [2.0, 3.0, 0, 0],
+#   "add_obstacles" : [0.0, 0.0, 1, 0],
+#   "add_enemies" : [0, 0, 0, 1],
+#   "start_random_z" : [0, 0, 0, 1]
+# }
